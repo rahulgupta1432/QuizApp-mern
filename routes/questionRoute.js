@@ -6,7 +6,7 @@ const router=express.Router();
 
 // router.get('/:topic', );
 
-router.get('/selected-question/:topic',getSelectedQuestionDetails);
+router.post('/selected-question/:topic',getSelectedQuestionDetails);
 
 router.post('/submit-quiz',SubmitQuizAnswers);
 

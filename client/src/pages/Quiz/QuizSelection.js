@@ -33,7 +33,7 @@ const QuizSelection = () => {
         if (selectedTopics.length > 0) {
             const selectedTopic = topics.find(t => t._id === selectedTopics[0]);
             if (selectedTopic) {
-                navigate(`/quiz/topic/${selectedTopic.topic}/id/${selectedTopic._id}`);
+                navigate(`/quiz/topic/${selectedTopic.topic}/id/${selectedTopic._id}`,{ state: { topicsIds: selectedTopics } });
             }
         } else {
             toast.warn('Please select at least one topic.');

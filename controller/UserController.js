@@ -30,10 +30,15 @@ export const getAllTopics=async(req,res,next)=>{
 
 export const getSelectedQuestionDetails = async (req, res, next) => {
     try {
-        console.log("Fetching questions for the selected topic");
+        const {topicName,topicIds}=req.body;
 
         // Find questions by topic
-        const questions = await Question.find({ topic: req.params.topic }).exec();
+        const questions = await Question.find({
+            $or:[
+                {topic:topicName},
+                { _id: { $in: topicIds } } // Use $in to check against the array
+            ]
+        }).exec();
         
         // Check if any questions were found
         if (!questions || questions.length === 0) {

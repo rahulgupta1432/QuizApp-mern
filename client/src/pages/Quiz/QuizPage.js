@@ -1,7 +1,7 @@
 import '../../styles/QuizPage.css'; // Import custom styles
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'primereact/button';
 import { API_URL } from '../../constant';
 import { toast } from 'react-toastify';
@@ -16,11 +16,26 @@ const QuizPage = () => {
     const userId = auth?.user?._id;
     const navigate = useNavigate();
     const { topicName } = useParams();
-
+    const [topicIds, setTopicIds] = useState([]);
+    const location = useLocation();
+    
     useEffect(() => {
-        const fetchQuestions = async () => {
+        const ids = location.state?.topicsIds || [];
+        if (ids.length > 0) {
+            setTopicIds(ids); // Set the state with the topic IDs
+            fetchQuestions(ids); // Pass the IDs to fetchQuestions
+        } else {
+            toast.warn("No topics selected.");
+        }
+    }, [location.state]);
+
+        const fetchQuestions = async (ids) => {
             try {
-                const response = await axios.get(`${API_URL}/api/questions/selected-question/${topicName}?page=1`);
+                const payload={
+                    topicName,
+                    topicIds:ids
+                }
+                const response = await axios.post(`${API_URL}/api/questions/selected-question/${topicName}?page=1`,payload);
                 const resp = response.data;
 
                 if (resp?.code === 200) {
@@ -34,9 +49,7 @@ const QuizPage = () => {
             }
         };
 
-        fetchQuestions();
-    }, [topicName]);
-
+        
     const handleAnswerSelect = (answer) => {
         const questionId = questions[currentQuestionIndex]._id;
         const existingAnswerIndex = userAnswers.findIndex(ans => ans.questionId === questionId);

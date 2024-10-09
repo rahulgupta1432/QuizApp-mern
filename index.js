@@ -6,8 +6,8 @@ const PORT=8080;
 import ErrorHandler from "./utils/ErrorHandler.js"
 import cors from "cors";
 const app = express();
-import authRoutes from "./routes/authRoute.js";
 import userRoutes from "./routes/userRoute.js";
+import projectRoutes from "./routes/projectRoute.js";
 import questionRoutes from "./routes/questionRoute.js";
 
 
@@ -17,9 +17,10 @@ connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use("/api/users", authRoutes);
-app.use("/api/topic",userRoutes);
-app.use("/api/questions",questionRoutes)
+app.use("/api/users", userRoutes);
+app.use("/api/topic",projectRoutes);
+app.use("/api/questions",questionRoutes);
+app.use("/api/admin",projectRoutes);
 
 
 
@@ -145,5 +146,5 @@ app.all('*', async (request, response, next) => {
 
 
 app.listen(PORT,()=>{
-    console.log(`Server is running on port ${PORT}`.blue);
+    console.log(`Server is running on port ${PORT}`);
 })

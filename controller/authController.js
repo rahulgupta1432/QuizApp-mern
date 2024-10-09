@@ -56,12 +56,12 @@ export const loginUser=async(req,res,next)=>{
             return next(new ErrorHandler("Password Is Incorrect",400));
         }
         const token=await generateToken(user.id,user.tokenVersion);
-        // user.password=undefined;
-        // const data={...user.toObject(),token}
+        user.password=undefined;
+        const data={...user.toObject(),token}
         sendResponse({
             res,
             message: "User Login Successfully",
-            data: {token},
+            data: data,
           });
     }catch(error){
         return next(new ErrorHandler(error.message,500));

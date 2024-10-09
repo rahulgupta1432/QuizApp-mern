@@ -15,7 +15,7 @@ const userSchema=new mongoose.Schema({
         default:[]
     },
     scores:{
-        type:[String],
+        type:[Object],
         default:[]
     },
     // image:{

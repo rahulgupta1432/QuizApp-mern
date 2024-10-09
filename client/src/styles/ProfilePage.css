@@ -1,0 +1,55 @@
+.profile-container {
+    max-width: 600px; /* Set a maximum width */
+    margin-bottom: 130px; /* Center the container with some margin */
+    padding: 20px; /* Add padding */
+    background-color: #ffffff; /* White background for clarity */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.profile-title {
+    text-align: center; /* Center the title */
+    font-size: 2rem; /* Larger font for the title */
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.profile-details {
+    font-size: 1.2rem; /* Set a slightly larger font for details */
+    color: #444; /* Medium gray for text */
+}
+
+.profile-item {
+    margin-bottom: 20px; /* Space between items */
+}
+
+.profile-item h3 {
+    margin: 0; /* Remove default margin */
+    color: #007bff; /* Accent color for headings */
+}
+
+.profile-item p {
+    margin: 5px 0; /* Space around paragraphs */
+}
+
+.profile-topics {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.profile-topics li {
+    background-color: #e0f7fa; /* Light background for topics */
+    padding: 10px; /* Add padding */
+    margin: 5px 0; /* Space between items */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.profile-topics li:hover {
+    background-color: #b2ebf2; /* Darker background on hover */
+}
+
+
+.profile-img{
+    margin-top: 20px;
+}

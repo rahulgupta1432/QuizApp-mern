@@ -1,10 +1,11 @@
 import express from "express";
-import {  SelectTopicsByUserId } from "../controller/userController.js";
-import { Auth } from "../middleware.js/authMiddleware.js";
+import { loginUser, registerUser } from "../controller/authController.js";
 
 const router=express.Router();
 
-router.post("/select",Auth,SelectTopicsByUserId);
+router.post("/register",registerUser);
+
+router.post("/login",loginUser);
 
 
 export default router;

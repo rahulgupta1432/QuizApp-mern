@@ -1,9 +1,14 @@
 import express from "express";
-import { getQuestionByTopic } from "../controller/userController.js";
+import { getSelectedQuestionDetails, SubmitQuizAnswers } from "../controller/userController.js";
 
 const router=express.Router();
 
-router.get('/:topic', getQuestionByTopic);
+
+// router.get('/:topic', );
+
+router.get('/selected-question/:topic',getSelectedQuestionDetails);
+
+router.post('/submit-quiz',SubmitQuizAnswers);
 
 
 export default router;

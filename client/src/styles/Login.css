@@ -1,0 +1,95 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-form-box {
+  max-width: 300px;
+  background: #f1f7fe;
+  overflow: hidden;
+  border-radius: 16px;
+  color: #010101;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 24px;
+  gap: 16px;
+  text-align: center;
+}
+
+.custom-title {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.custom-subtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+.custom-form-container {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #fff;
+  margin: 1rem 0 .5rem;
+  width: 100%;
+}
+
+.custom-input {
+  background: none;
+  border: 1px solid #ccc;
+  outline: 0;
+  height: 40px;
+  width: 100%;
+  border-radius: 4px; 
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  transition: border-color 0.3s; 
+  margin-bottom: 16px;
+}
+
+.custom-input:focus {
+  border-color: #0066ff; 
+  box-shadow: 0 0 5px rgba(0, 102, 255, 0.5); /* Optional: Add a subtle glow effect */
+}
+
+.custom-form-section {
+  padding: 16px;
+  font-size: .85rem;
+  background-color: #e0ecfb;
+  box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+}
+
+.custom-form-section a {
+  font-weight: bold;
+  color: #0066ff;
+  transition: color .3s ease;
+}
+
+.custom-form-section a:hover {
+  color: #005ce6;
+  text-decoration: underline;
+}
+
+.custom-form button {
+  background-color: #0066ff;
+  color: #fff;
+  border: 0;
+  border-radius: 24px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.custom-form button:hover {
+  background-color: #005ce6;
+}

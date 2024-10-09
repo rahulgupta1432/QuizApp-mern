@@ -1,0 +1,45 @@
+.leaderboard-container {
+    max-width: 800px; /* Adjust width as needed */
+    margin: 20px auto; /* Center the container and add some vertical space */
+    padding: 20px;
+    background-color: #f4f7fa; /* Light background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 300px; /* Reduce margin to shift it up */
+}
+
+.leaderboard-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.p-datatable {
+    border-radius: 8px;
+    overflow: hidden; /* Ensure no overflow */
+}
+
+.p-datatable-header {
+    background-color: #007bff;
+    color: white;
+}
+
+.p-datatable-header th {
+    text-align: center;
+}
+
+.p-datatable-body td {
+    text-align: center;
+}
+
+.p-button-secondary {
+    background-color: #28a745; /* Success color */
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.p-button-secondary:hover {
+    background-color: #218838; /* Darker shade on hover */
+}

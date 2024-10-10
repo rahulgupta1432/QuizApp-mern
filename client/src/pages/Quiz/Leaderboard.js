@@ -1,6 +1,6 @@
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
-// import { API_URL } from '../../constant';
+// import DOMAIN from '../../constant';
 // import { toast } from 'react-toastify';
 // import { DataView } from 'primereact/dataview';
 // import { Card } from 'primereact/card';
@@ -14,7 +14,7 @@
 //     useEffect(() => {
 //         const fetchScores = async () => {
 //             try {
-//                 const response = await axios.get(`${API_URL}/api/admin/leaderboard`);
+//                 const response = await axios.get(`${window.location.origin}/api/admin/leaderboard`);
 //                 const res = response.data;
 //                 if (res?.code === 200) {
 //                     setScores(res.data);
@@ -53,7 +53,7 @@ import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/Leaderboard.css'; // Import custom styles
-import { API_URL } from '../../constant';
+import DOMAIN from '../../constant';
 import Header from '../../components/Layout/Header';
 
 const Leaderboard = () => {
@@ -66,7 +66,7 @@ const Leaderboard = () => {
 
     const fetchScores = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/admin/leaderboard`);
+            const response = await axios.get(`${window.location.origin}/api/admin/leaderboard`);
             const res = response.data;
             if (res?.code === 200) {
                 setScores(res.data);

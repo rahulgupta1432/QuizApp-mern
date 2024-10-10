@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'primereact/button';
-import { API_URL } from '../../constant';
+import DOMAIN from '../../constant';
 import { toast } from 'react-toastify';
 import { useAuth } from '../../context/Auth';
 import Header from '../../components/Layout/Header';
@@ -35,7 +35,7 @@ const QuizPage = () => {
                     topicName,
                     topicIds:ids
                 }
-                const response = await axios.post(`${API_URL}/api/questions/selected-question/${topicName}?page=1`,payload);
+                const response = await axios.post(`${window.location.origin}/api/questions/selected-question/${topicName}?page=1`,payload);
                 const resp = response.data;
 
                 if (resp?.code === 200) {
@@ -82,7 +82,7 @@ const QuizPage = () => {
         };
 
         try {
-            const response = await axios.post(`${API_URL}/api/questions/submit-quiz`, payload);
+            const response = await axios.post(`${window.location.origin}/api/questions/submit-quiz`, payload);
             const resp = response.data;
             if (resp?.code === 200) {
                 navigate('/score', { state: { score: resp.data[0].score, correctAnswers: resp.data[0].validatedAnswers } });

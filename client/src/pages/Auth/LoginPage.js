@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import '../../styles/Login.css'
 import { toast } from 'react-toastify';
 import axios from 'axios'
-import { API_URL } from '../../constant';
+import DOMAIN from '../../constant';
 import { useAuth } from '../../context/Auth';
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +15,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${API_URL}/api/users/login`, {
+      const response = await axios.post(`${window.location.origin}/api/users/login`, {
         email,
         password
       });

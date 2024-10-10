@@ -156,7 +156,7 @@ const app=express();
 import cors from "cors";
 import 'dotenv/config';
 import ErrorHandler from "./utils/ErrorHandler.js"
-import { connectDB, disconnectDB } from './config/dbConfig.js';
+import { connectDB } from './config/dbConfig.js';
 import userRoute from './routes/userRoute.js'
 import projectRoutes from "./routes/projectRoute.js";
 import questionRoutes from "./routes/questionRoute.js";
@@ -165,7 +165,7 @@ import questionRoutes from "./routes/questionRoute.js";
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use("/api/users",userRoute );
+app.use("/api/users",userRoute);
 app.use("/api/topic",projectRoutes);
 app.use("/api/questions",questionRoutes);
 app.use("/api/admin",projectRoutes);

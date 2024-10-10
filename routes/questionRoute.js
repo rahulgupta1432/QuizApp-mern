@@ -1,5 +1,5 @@
 import express from "express";
-import { getSelectedQuestionDetails, SubmitQuizAnswers } from "../Controller/UserController.js";
+import { getSelectedQuestionDetails, SubmitQuizAnswers } from "../controller/UserController.js";
 
 const router=express.Router();
 
@@ -9,6 +9,11 @@ const router=express.Router();
 router.post('/selected-question/:topic',getSelectedQuestionDetails);
 
 router.post('/submit-quiz',SubmitQuizAnswers);
+
+// import fs from 'fs';
+// import path from 'path';
+
+// console.log(fs.readdirSync(path.join(__dirname, '../controller')));
 
 
 export default router;

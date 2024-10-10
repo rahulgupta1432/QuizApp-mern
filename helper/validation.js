@@ -1,7 +1,7 @@
 import joi from "joi";
 const registerUserValidation=async(user)=>{
     const schema=joi.object({
-        email:joi.string().email({maxDomainSegments:5,tlds:{allow:["org","com","in"]}}).required(),
+        email:joi.string().email({maxAPI_URLSegments:5,tlds:{allow:["org","com","in"]}}).required(),
         password:joi.string().min(8).required(),
         topics:joi.array(),
         scores:joi.array()
@@ -24,7 +24,7 @@ const registerUserValidation=async(user)=>{
 
 const loginValidation=async(user)=>{
     const schema=joi.object({
-        email:joi.string().email({maxDomainSegments:5,tlds:{allow:["org","com","in"]}}).required(),
+        email:joi.string().email({maxAPI_URLSegments:5,tlds:{allow:["org","com","in"]}}).required(),
         password:joi.string().required()
     })
     let valid = await schema

@@ -1,4 +1,4 @@
-// export const API_URL="http://localhost:8080";
+export const API_URL="https://quiz-app-mern-ruby.vercel.app";
 // export const API_URL="https://e-commerce-app-mern-chi.vercel.app";
-export const  DOMAIN = [ "{window.location.origin}"]
+// export const  API_URL = [ "{window.location.origin}"]
 

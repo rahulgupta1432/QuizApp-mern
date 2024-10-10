@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import '../../styles/Login.css'
 import { toast } from 'react-toastify';
 import axios from 'axios'
-import DOMAIN from '../../constant';
+import {API_URL} from '../../constant';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +15,7 @@ const RegisterPage = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${window.location.origin}/api/users/register`, {
+      const response = await axios.post(`${API_URL}/api/users/register`, {
         email,
         password
       });

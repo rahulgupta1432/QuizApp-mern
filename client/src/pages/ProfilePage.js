@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import DOMAIN from '../constant';
 import axios from 'axios';
 import '../styles/ProfilePage.css'
 import { useAuth } from '../context/Auth';
 import Header from '../components/Layout/Header';
 import { Button } from 'primereact/button';
+import { API_URL } from '../constant';
 
 const ProfilePage = () => {
     const [auth]=useAuth();
@@ -19,7 +19,7 @@ const ProfilePage = () => {
     },[userId])
     const fetchUserData = async () => {
         try {
-            const response = await axios.get(`${window.location.origin}/api/admin/get-profile?userId=${userId}`);
+            const response = await axios.get(`${API_URL}/api/admin/get-profile?userId=${userId}`);
             const resp = response.data;
 
             if (resp?.code === 200) {
@@ -54,7 +54,7 @@ const ProfilePage = () => {
             email: userData.email // Only include the email
         };
         try {
-            const response = await axios.put(`${window.location.origin}/api/admin/update-profile`,updatedData);
+            const response = await axios.put(`${API_URL}/api/admin/update-profile`,updatedData);
             const resp = response.data;
             if (resp?.code === 200) {
                 setIsEditing(false)

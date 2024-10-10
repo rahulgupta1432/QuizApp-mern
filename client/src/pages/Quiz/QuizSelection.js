@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { MultiSelect } from 'primereact/multiselect';
 import { Button } from 'primereact/button';
-import DOMAIN from '../../constant';
+import {API_URL} from '../../constant';
 import { toast } from 'react-toastify';
 import '../../styles/QuizSelection.css'; 
 import Header from '../../components/Layout/Header';
@@ -19,7 +19,7 @@ const QuizSelection = () => {
 
     const fetchAllTopics = async () => {
         try {
-            const response = await axios.get(`${window.location.origin}/api/admin/all-topics`);
+            const response = await axios.get(`${API_URL}/api/admin/all-topics`);
             const resp = response.data;
             if (resp?.code === 200) {
                 setTopics(resp.data);

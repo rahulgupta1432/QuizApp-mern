@@ -156,9 +156,13 @@ const app=express();
 import cors from "cors";
 import 'dotenv/config';
 import { connectDB, disconnectDB } from './config/dbConfig.js';
+import userRoute from './routes/userRoute.js'
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use("/api/users",userRoute );
+
+
 
 connectDB();
 
@@ -214,6 +218,53 @@ app.get("/", (req, res) => {
       </html>`);
   });
 
+
+
+  app.all('*', (req, res, next) => {
+        const error = new ErrorHandler('Page Not Found',404);
+        res.status(error.statusCode).send(`<!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>404 Not Found</title>
+            <style>
+              body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                text-align: center;
+              }
+              .container {
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              }
+              .error-code {
+                color: #ff0000;
+                font-size: 100px; 
+                margin: 0;
+              }
+              .message {
+                color: #333333;
+                font-size: 20px;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1 class="error-code">404</h1>
+              <p class="message">This page does not exist.</p>
+            </div>
+          </body>
+          </html>`);
+      });
 
   
 app.listen(8080,()=>{

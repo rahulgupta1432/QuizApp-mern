@@ -6,11 +6,11 @@ const router=express.Router();
 
 router.get('/all-topics',getAllTopics);
 
-router.get('/leaderboard',getLeaderBoard);
+router.get('/leaderboard',Auth,getLeaderBoard);
 
 router.get('/get-profile',getUserProfile);
 
-router.put('/update-profile',updateUserProfile);
+router.put('/update-profile',Auth,updateUserProfile);
 
 
 

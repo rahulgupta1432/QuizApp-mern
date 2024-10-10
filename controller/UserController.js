@@ -85,8 +85,9 @@ export const getSelectedQuestionDetails = async (req, res, next) => {
 
 export const SubmitQuizAnswers = async (req, res, next) => {
     try {
+        console.log(req.user)
         const { userId, answers } = req.body; // { userId, answers: [{ questionId, answer }] }
-        const user = await User.findById(userId);
+        const user = await User.findById(userId||req.user._id);
         let score = 0;
 
         // Validate answers and calculate score

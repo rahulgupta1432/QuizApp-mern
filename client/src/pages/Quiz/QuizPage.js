@@ -77,7 +77,7 @@ const QuizPage = () => {
 
     const handleSubmit = async () => {
         const payload = {
-            userId,
+            userId:auth?.user?._id,
             answers: userAnswers,
         };
 

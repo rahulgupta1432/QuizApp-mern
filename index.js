@@ -162,7 +162,41 @@ app.use(cors());
 
 connectDB();
 
-// // create a route at /
+
+
+
+app.use((err, req, res, next) => {
+    err.statusCode = err.statusCode || 500;
+    err.message = err.message || 'Internal Server Error';
+
+    res.status(err.statusCode).json({
+        status: "failure",
+        code: err.statusCode,
+        message: err.message,
+        data: []
+    });
+});
+
+app.use((data, req, res, next) => {
+    data.message = data.message || 'Fetch Successfully';
+    data.data = data.data||[] ;
+
+    res.status(data.statusCode).json({
+        code: data.statusCode,
+        message: data.message,
+        data:data.data
+    });
+});
+
+
+
+
+
+
+
+
+
+// create a route at /
 app.get("/", (req, res) => {
     res.send(`<!DOCTYPE html>
       <html lang="en">

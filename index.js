@@ -155,6 +155,7 @@ import express from "express";
 const app=express();
 import cors from "cors";
 import 'dotenv/config';
+import ErrorHandler from "./utils/ErrorHandler.js"
 import { connectDB, disconnectDB } from './config/dbConfig.js';
 import userRoute from './routes/userRoute.js'
 app.use(express.json());

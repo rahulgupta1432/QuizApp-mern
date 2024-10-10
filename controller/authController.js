@@ -5,7 +5,7 @@ import ErrorHandler from "../utils/ErrorHandler.js";
 import sendResponse from "../utils/SendResponse.js";
 
 
-export const registerUser=async(req,res,next)=>{
+const registerUser=async(req,res,next)=>{
     try {
         const { email,password,topics,scores } = req.body;
         const valid=await registerUserValidation(req.body);
@@ -37,7 +37,7 @@ export const registerUser=async(req,res,next)=>{
 }
 
 
-export const loginUser=async(req,res,next)=>{
+const loginUser=async(req,res,next)=>{
     try {
         const { email,mobile,password } = req.body;
         const valid=await loginValidation(req.body);
@@ -68,3 +68,8 @@ export const loginUser=async(req,res,next)=>{
     }
 }
 
+
+export {
+    registerUser,
+    loginUser
+}

@@ -160,11 +160,12 @@ import { connectDB } from './config/dbConfig.js';
 import userRoute from './routes/userRoute.js'
 import projectRoutes from "./routes/projectRoute.js";
 import questionRoutes from "./routes/questionRoute.js";
-
+import morgan from "morgan";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(morgan('dev'));
 app.use("/api/users",userRoute);
 app.use("/api/topic",projectRoutes);
 app.use("/api/questions",questionRoutes);

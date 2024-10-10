@@ -160,11 +160,7 @@ import { connectDB, disconnectDB } from './config/dbConfig.js';
 import userRoute from './routes/userRoute.js'
 import projectRoutes from "./routes/projectRoute.js";
 import questionRoutes from "./routes/questionRoute.js";
-// import path from 'path'
-// import { fileURLToPath } from 'url';
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -174,8 +170,8 @@ app.use("/api/topic",projectRoutes);
 app.use("/api/questions",questionRoutes);
 app.use("/api/admin",projectRoutes);
 
-
 connectDB();
+
 
 
 
@@ -202,9 +198,6 @@ app.use((data, req, res, next) => {
         data:data.data
     });
 });
-
-
-// app.use(express.static(path.resolve(__dirname, "client", "build")));
 
 
 
